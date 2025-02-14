@@ -8,7 +8,7 @@ use web_sys::window;
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_name = setTimeout)]
-    fn set_timeout_closure(closure: &JsValue, ms: i32) -> i32;
+    fn schedule_execution(exec: &JsValue, ms: i32) -> i32;
     #[wasm_bindgen(js_name = clearTimeout)]
-    fn clear_timeout(id: i32);
+    fn cancel_scheduled(timer_ref: i32);
 }
