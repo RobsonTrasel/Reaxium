@@ -6,7 +6,8 @@ use wasm_bindgen::JsValue;
 use web_sys::window;
 
 #[wasm_bindgen]
-extern "C" {
+extern "C"
+{
     #[wasm_bindgen(js_name = setTimeout)]
     fn schedule_execution(exec: &JsValue, ms: i32) -> i32;
     #[wasm_bindgen(js_name = clearTimeout)]
