@@ -39,4 +39,22 @@ pub struct SystemBridge {
     combined_streams: HashMap<(String, String), String>,
 }
 
+#[wasm_bindgen]
+impl SystemBridge
+{
+    #[wasm_bindgen(constructor)]
+    pub fn new(capacity: usize) -> SystemBridge
+    {
+        SystemBridge
+        {
+            listeners: HashMap::new(),
+            queues: HashMap::new(),
+            queue_limit: capacity,
+            postpone_registry: HashMap::new(),
+            pace_registry: HashMap::new(),
+            combined_streams: HashMap::new(),
+        }
+    }
+
+}
 
