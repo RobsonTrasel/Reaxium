@@ -13,3 +13,18 @@ extern "C"
     #[wasm_bindgen(js_name = clearTimeout)]
     fn cancel_scheduled(timer_ref: i32);
 }
+
+#[derive(Default)]
+struct PostponeData
+{
+    timer_ref: i32,
+    interval_ms: u32
+}
+
+#[derive(Default)]
+struct PaceData
+{
+    cooldown: bool,
+    interval_ms: u32,
+    timer_ref: i32,
+}
