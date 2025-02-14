@@ -30,7 +30,8 @@ struct PaceData
 }
 
 #[wasm_bindgen]
-pub struct SystemBridge {
+pub struct SystemBridge
+{
     listeners: HashMap<String, VecDeque<Function>>,
     queues: HashMap<String, VecDeque<JsValue>>,
     queue_limit: usize,
