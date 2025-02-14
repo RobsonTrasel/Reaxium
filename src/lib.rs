@@ -66,6 +66,13 @@ impl SystemBridge
             .push_back(callback);
     }
 
+    #[wasm_bindgen]
+    pub fn remove_listener(&mut self, evt: String, callback: Function)
+    {
+        if let Some(list) = self.listeners.get_mut(&evt) {
+            list.retain(|cb| !cb.equals(&callback));
+        }
+    }
 
 }
 
