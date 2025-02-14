@@ -57,5 +57,15 @@ impl SystemBridge
         }
     }
 
+    #[wasm_bindgen]
+    pub fn add_listener(&mut self, evt: String, callback: Function)
+    {
+        self.listeners
+            .entry(evt)
+            .or_insert_with(VecDeque::new)
+            .push_back(callback);
+    }
+
+
 }
 
